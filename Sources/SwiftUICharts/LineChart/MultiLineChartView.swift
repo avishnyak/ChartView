@@ -15,6 +15,7 @@ public struct MultiLineChartView: View {
     public var style: ChartStyle
     public var darkModeStyle: ChartStyle
     public var formSize:CGSize
+    public var frame: CGSize
     public var dropShadow: Bool
     public var valueSpecifier:String
     
@@ -42,8 +43,6 @@ public struct MultiLineChartView: View {
         }
         return 0
     }
-    
-    let frame = CGSize(width: 180, height: 120)
     private var rateValue: Int
     
     public init(data: [([Double], GradientColor)],
@@ -51,6 +50,7 @@ public struct MultiLineChartView: View {
                 legend: String? = nil,
                 style: ChartStyle = Styles.lineChartStyleOne,
                 form: CGSize? = ChartForm.medium,
+                frame: CGSize? = CGSize(width: 180, height: 120),
                 rateValue: Int? = 14,
                 dropShadow: Bool? = true,
                 valueSpecifier: String? = "%.1f") {
@@ -61,6 +61,7 @@ public struct MultiLineChartView: View {
         self.style = style
         self.darkModeStyle = style.darkModeStyle != nil ? style.darkModeStyle! : Styles.lineViewDarkMode
         self.formSize = form!
+        self.frame = frame!
         self.rateValue = rateValue!
         self.dropShadow = dropShadow!
         self.valueSpecifier = valueSpecifier!
@@ -84,14 +85,14 @@ public struct MultiLineChartView: View {
                                 .font(.callout)
                                 .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.legendTextColor : self.style.legendTextColor)
                         }
-                        HStack {
-                            if (self.rateValue >= 0){
-                                Image(systemName: "arrow.up")
-                            }else{
-                                Image(systemName: "arrow.down")
-                            }
-                            Text("\(self.rateValue)%")
-                        }
+//                        HStack {
+//                            if (self.rateValue >= 0){
+//                                Image(systemName: "arrow.up")
+//                            }else{
+//                                Image(systemName: "arrow.down")
+//                            }
+//                            Text("\(self.rateValue)%")
+//                        }
                     }
                     .transition(.opacity)
                     .animation(.easeIn(duration: 0.1))
