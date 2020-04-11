@@ -14,6 +14,7 @@ public struct MultiLineChartView: View {
     public var legend: String?
     public var style: ChartStyle
     public var darkModeStyle: ChartStyle
+
     public var formSize:CGSize
     public var frame: CGSize
     public var dropShadow: Bool
@@ -45,7 +46,7 @@ public struct MultiLineChartView: View {
     }
     private var rateValue: Int
     
-    public init(data: [([Double], GradientColor)],
+    public init(data: [([Double], String, GradientColor)],
                 title: String,
                 legend: String? = nil,
                 style: ChartStyle = Styles.lineChartStyleOne,
@@ -55,7 +56,7 @@ public struct MultiLineChartView: View {
                 dropShadow: Bool? = true,
                 valueSpecifier: String? = "%.1f") {
         
-        self.data = data.map({ MultiLineChartData(points: $0.0, gradient: $0.1)})
+        self.data = data.map({ MultiLineChartData(points: $0.0, label: $0.1, gradient: $0.2)})
         self.title = title
         self.legend = legend
         self.style = style
@@ -149,7 +150,7 @@ public struct MultiLineChartView: View {
 struct MultiWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MultiLineChartView(data: [([8,23,54,32,12,37,7,23,43], GradientColors.orange)], title: "Line chart", legend: "Basic")
+            MultiLineChartView(data: [([8,23,54,32,12,37,7,23,43], "Test", GradientColors.orange)], title: "Line chart", legend: "Basic")
                 .environment(\.colorScheme, .light)
         }
     }

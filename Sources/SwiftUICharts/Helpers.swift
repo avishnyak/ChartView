@@ -215,14 +215,17 @@ public class ChartData: ObservableObject, Identifiable {
 
 public class MultiLineChartData: ChartData {
     var gradient: GradientColor
+    var label: String
     
-    public init<N: BinaryFloatingPoint>(points:[N], gradient: GradientColor) {
+    public init<N: BinaryFloatingPoint>(points:[N], label: String, gradient: GradientColor) {
         self.gradient = gradient
+        self.label = label
         super.init(points: points)
     }
     
-    public init<N: BinaryFloatingPoint>(points:[N], color: Color) {
+    public init<N: BinaryFloatingPoint>(points:[N], label: String, color: Color) {
         self.gradient = GradientColor(start: color, end: color)
+        self.label = label
         super.init(points: points)
     }
     
