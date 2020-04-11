@@ -1,4 +1,4 @@
-# SwiftUICharts
+# Forked From SwiftUICharts
 
 Swift package for displaying charts effortlessly.
 
@@ -13,7 +13,7 @@ It supports:
 
 It requires iOS 13 and Xcode 11!
 
-In Xcode got to `File -> Swift Packages -> Add Package Dependency` and paste inthe repo's url: `https://github.com/AppPear/ChartView`
+In Xcode got to `File -> Swift Packages -> Add Package Dependency` and paste inthe repo's url: `https://github.com/avishnyak/ChartView`
 
 ### Usage:
 
